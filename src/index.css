@@ -1,0 +1,148 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142 72% 29%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142 72% 29%;
+    --radius: 1rem;
+  }
+ 
+  .dark {
+    --background: 260 20% 10%;
+    --foreground: 0 0% 98%;
+    --card: 260 15% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 260 15% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 260 73% 75%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 260 20% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 260 20% 20%;
+    --muted-foreground: 260 10% 70%;
+    --accent: 260 20% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 15% 20%;
+    --input: 260 15% 20%;
+    --ring: 260 73% 75%;
+  }
+
+  * {
+    @apply border-border font-sans;
+  }
+
+  body {
+    @apply bg-neon-dark text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-black/20 border border-white/10 rounded-xl shadow-lg;
+  }
+  
+  .album-card {
+    @apply relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-neon-purple/20 cursor-pointer;
+  }
+  
+  .album-card-hover {
+    @apply opacity-0 absolute inset-0 flex items-center justify-center bg-black/60 transition-opacity duration-300;
+  }
+  
+  .album-card:hover .album-card-hover {
+    @apply opacity-100;
+  }
+  
+  .nav-link {
+    @apply flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200 py-2;
+  }
+  
+  .nav-link.active {
+    @apply text-neon-purple;
+  }
+  
+  .audio-wave {
+    @apply flex items-end gap-[2px];
+  }
+  
+  .audio-wave-bar {
+    @apply w-1 bg-neon-purple rounded-full;
+  }
+  
+  .vinyl-record {
+    @apply relative rounded-full overflow-hidden border-8 border-black transition-all;
+  }
+  
+  .vinyl-record::after {
+    content: '';
+    @apply absolute top-1/2 left-1/2 w-[20%] h-[20%] rounded-full bg-neon-dark border-4 border-black -translate-x-1/2 -translate-y-1/2;
+  }
+  
+  .slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-neon-purple opacity-0 transition-opacity cursor-pointer;
+  }
+  
+  .slider:hover .slider-thumb {
+    @apply opacity-100;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent;
+  }
+  
+  .player-card {
+    @apply rounded-xl bg-neon-gray/30 backdrop-blur-md p-4 border border-white/5 shadow-lg transition-all hover:shadow-neon-purple/10;
+  }
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 31, 44, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #403E43;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7E69AB;
+}
+
+/* Custom button styles */
+button:focus {
+  @apply outline-none ring-2 ring-neon-purple/50;
+}
+
+/* Custom transitions */
+.page-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
